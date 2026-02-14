@@ -5,7 +5,6 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="navbar-logo">
-                    <span className="logo-icon">💼</span>
                     <span className="logo-text">SkyBooker</span>
                 </div>
                 <ul className="navbar-links">
