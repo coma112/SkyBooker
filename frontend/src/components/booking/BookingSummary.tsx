@@ -60,7 +60,6 @@ const BookingSummary = ({ flight, seatClass, departureDate }: BookingSummaryProp
       </div>
 
       <div className="summary-content">
-        {/* Flight Details */}
         <div className="summary-section flight-info">
           <div className="flight-header">
             <FaPlane className="section-icon" />
@@ -96,13 +95,11 @@ const BookingSummary = ({ flight, seatClass, departureDate }: BookingSummaryProp
           </div>
         </div>
 
-        {/* Class Info */}
         <div className="summary-section class-section">
           <MdEventSeat className="section-icon" />
           <span className="class-label">{getClassLabel(seatClass)}</span>
         </div>
 
-        {/* Price Breakdown */}
         <div className="summary-section price-section">
           <h4>Ár részletezés</h4>
 
@@ -157,7 +154,6 @@ const BookingSummary = ({ flight, seatClass, departureDate }: BookingSummaryProp
           </div>
         </div>
 
-        {/* Info Notice */}
         <div className="summary-notice">
           <p>A végleges ár az utas adatainak megadása után kerül kiszámításra.</p>
         </div>

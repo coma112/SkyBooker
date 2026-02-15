@@ -27,9 +27,10 @@ interface Flight {
 interface FlightCardProps {
   flight: Flight;
   onDetailsClick: () => void;
+  onBookingClick: (flight: Flight, seatClass: 'ECONOMY' | 'BUSINESS' | 'FIRST') => void;
 }
 
-const FlightCard = ({ flight, onDetailsClick }: FlightCardProps) => {
+const FlightCard = ({ flight, onDetailsClick, onBookingClick }: FlightCardProps) => {
   const formatTime = (dateString: string) => {
     return new Date(dateString).toLocaleTimeString('hu-HU', {
       hour: '2-digit',
@@ -57,8 +58,7 @@ const FlightCard = ({ flight, onDetailsClick }: FlightCardProps) => {
   };
 
   const handleBooking = (seatClass: 'ECONOMY' | 'BUSINESS' | 'FIRST') => {
-    console.log('Booking flight:', flight.id, 'Class:', seatClass);
-    alert(`Foglalás folyamatban: ${flight.flightNumber} - ${seatClass} osztály`);
+    onBookingClick(flight, seatClass);
   };
 
   return (

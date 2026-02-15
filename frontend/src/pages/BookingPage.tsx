@@ -4,7 +4,7 @@ import Footer from '../components/common/Footer';
 import BookingForm from '../components/booking/BookingForm';
 import BookingSummary from '../components/booking/BookingSummary';
 import './BookingPage.css';
-import { BookingFormData, BookingData } from '../types/booking';
+import type { BookingFormData, BookingData } from '../types/booking';
 import { calculatePrice } from '../utils/priceCalculation';
 
 interface Flight {
@@ -49,14 +49,11 @@ const BookingPage = ({
     setIsSubmitting(true);
 
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
 
-      // Calculate final price
       const basePrice = flight.prices[seatClass];
       const priceBreakdown = calculatePrice(basePrice, seatClass, departureDate);
 
-      // Create booking data
       const bookingData: BookingData = {
         ...formData,
         flightId: flight.id,
@@ -65,7 +62,6 @@ const BookingPage = ({
         bookingDate: new Date().toISOString()
       };
 
-      // Call parent handler
       onConfirm(bookingData);
     } catch (error) {
       console.error('Booking error:', error);

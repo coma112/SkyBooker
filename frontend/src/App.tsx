@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage';
 import FlightListPage from './pages/FlightListPage';
 import BookingPage from './pages/BookingPage';
 import './App.css';
-import { BookingData } from './types/booking';
+import type { BookingData } from './types/booking';
 
 type Page = 'home' | 'flights' | 'booking' | 'confirmation';
 
@@ -32,7 +32,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [selectedFlight, setSelectedFlight] = useState<Flight | null>(null);
   const [selectedClass, setSelectedClass] = useState<'ECONOMY' | 'BUSINESS' | 'FIRST'>('ECONOMY');
-  const [departureDate] = useState<string>('2026-03-15'); // This would come from search form
+  const [departureDate] = useState<string>('2026-03-15'); 
   const [bookingData, setBookingData] = useState<BookingData | null>(null);
 
   const navigateTo = (page: Page) => {
@@ -68,7 +68,6 @@ function App() {
   }
 
   if (currentPage === 'confirmation' && bookingData) {
-    // Placeholder for confirmation page
     return (
       <div style={{ 
         minHeight: '100vh', 

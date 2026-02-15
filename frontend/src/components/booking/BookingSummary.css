@@ -57,7 +57,6 @@
   border-bottom: none;
 }
 
-/* Flight Info */
 .flight-info {
   padding-top: 0;
 }
@@ -157,7 +156,6 @@
   color: #fbbf24;
 }
 
-/* Class Section */
 .class-section {
   display: flex;
   align-items: center;
@@ -173,7 +171,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Price Section */
 .price-section h4 {
   font-family: 'Playfair Display', serif;
   font-size: 1.125rem;
@@ -260,7 +257,6 @@
   color: #fbbf24;
 }
 
-/* Notice */
 .summary-notice {
   margin-top: 1rem;
   padding: 1rem;

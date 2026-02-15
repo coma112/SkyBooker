@@ -1,6 +1,6 @@
 import { useState, FormEvent, ChangeEvent, FocusEvent } from 'react';
 import './BookingForm.css';
-import { BookingFormData } from '../../types/booking';
+import type { BookingFormData } from '../../types/booking';
 import {
   validateEmail,
   validatePhone,
@@ -35,7 +35,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
       [name]: value
     }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof BookingFormData]) {
       setErrors(prev => ({
         ...prev,
@@ -51,7 +50,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
       [name]: true
     }));
 
-    // Validate on blur
     validateField(name as keyof BookingFormData);
   };
 
@@ -101,7 +99,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
     ];
 
     let isValid = true;
-    const newErrors: Partial<Record<keyof BookingFormData, string>> = {};
 
     fields.forEach(field => {
       if (!validateField(field)) {
@@ -109,7 +106,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
       }
     });
 
-    // Mark all as touched
     const allTouched: Partial<Record<keyof BookingFormData, boolean>> = {};
     fields.forEach(field => {
       allTouched[field] = true;
@@ -135,7 +131,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
-      {/* Personal Information */}
       <div className="form-section">
         <h3 className="section-title">Személyi adatok</h3>
 
@@ -184,7 +179,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
         </div>
       </div>
 
-      {/* Contact Information */}
       <div className="form-section">
         <h3 className="section-title">Elérhetőség</h3>
 
@@ -231,7 +225,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
         </div>
       </div>
 
-      {/* Travel Document */}
       <div className="form-section">
         <h3 className="section-title">Utazási dokumentum</h3>
 
@@ -279,7 +272,6 @@ const BookingForm = ({ onSubmit, loading }: BookingFormProps) => {
         </div>
       </div>
 
-      {/* Submit Button */}
       <div className="form-actions">
         <button 
           type="submit" 

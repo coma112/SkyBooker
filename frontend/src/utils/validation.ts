@@ -6,7 +6,7 @@ export const validateEmail = (email: string): string | null => {
   return null;
 };
 
-export const validateRequired = (value: string, fieldName: string): string | null => {
+export const validateRequired = (value: string): string | null => {
   if (!value || value.trim() === '') {
     return 'Kötelező mező!';
   }
