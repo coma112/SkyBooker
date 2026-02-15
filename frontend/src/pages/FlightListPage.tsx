@@ -9,7 +9,7 @@ import { FaSort } from 'react-icons/fa';
 import { GrDocumentMissing } from "react-icons/gr";
 import { FaArrowRight } from "react-icons/fa6";
 
-// Mock data - később API-ból jön majd
+// Mock data
 const mockFlights = [
   {
     id: 'LH1234',
@@ -122,7 +122,11 @@ interface Filters {
 
 type SortOption = 'price' | 'departure' | 'duration';
 
-const FlightListPage = () => {
+interface FlightListPageProps {
+  onBookingClick: (flight: typeof mockFlights[0], seatClass: 'ECONOMY' | 'BUSINESS' | 'FIRST') => void;
+}
+
+const FlightListPage = ({ onBookingClick }: FlightListPageProps) => {
   const [flights] = useState(mockFlights);
   const [selectedFlight, setSelectedFlight] = useState<typeof mockFlights[0] | null>(null);
   const [filters, setFilters] = useState<Filters>({
@@ -143,7 +147,7 @@ const FlightListPage = () => {
   const getDuration = (departure: string, arrival: string) => {
     const dep = new Date(departure);
     const arr = new Date(arrival);
-    return (arr.getTime() - dep.getTime()) / (1000 * 60); 
+    return (arr.getTime() - dep.getTime()) / (1000 * 60);
   };
 
   const filteredFlights = flights.filter(flight => {
@@ -209,7 +213,7 @@ const FlightListPage = () => {
 
         <div className="content-container">
           <aside className="filters-sidebar">
-            <FlightFilters 
+            <FlightFilters
               filters={filters}
               onFilterChange={setFilters}
             />
@@ -249,6 +253,7 @@ const FlightListPage = () => {
                   key={flight.id}
                   flight={flight}
                   onDetailsClick={() => setSelectedFlight(flight)}
+                  onBookingClick={onBookingClick}
                 />
               ))}
 
