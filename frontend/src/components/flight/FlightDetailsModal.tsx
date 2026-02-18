@@ -4,6 +4,8 @@ import { MdClose, MdFlightTakeoff, MdFlightLand, MdEventSeat } from 'react-icons
 import { FaPlane, FaClock, FaLuggageCart, FaShoppingBag } from 'react-icons/fa';
 import { IoMdPerson } from 'react-icons/io';
 import { GiWeight } from "react-icons/gi";
+import { formatTime, formatDate } from '../../utils/dateUtils';
+import { getDuration, formatPriceSimple, getSeatStatusLabel } from '../../utils/flightUtils';
 
 interface Flight {
   id: string;
@@ -38,41 +40,6 @@ const FlightDetailsModal = ({ flight, onClose }: FlightDetailsModalProps) => {
       document.body.style.overflow = 'unset';
     };
   }, []);
-
-  const formatTime = (dateString: string) => {
-    return new Date(dateString).toLocaleTimeString('hu-HU', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('hu-HU', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
-  const getDuration = (departure: string, arrival: string) => {
-    const dep = new Date(departure);
-    const arr = new Date(arrival);
-    const minutes = (arr.getTime() - dep.getTime()) / (1000 * 60);
-    const hours = Math.floor(minutes / 60);
-    const mins = Math.floor(minutes % 60);
-    return `${hours} óra ${mins} perc`;
-  };
-
-  const formatPrice = (price: number) => {
-    return price.toLocaleString('hu-HU') + ' Ft';
-  };
-
-  const getSeatStatus = (available: number): string => {
-    if (available > 30) return 'Sok szabad hely';
-    if (available > 10) return 'Korlátozott helyek';
-    if (available > 0) return 'Csak néhány hely!';
-    return 'Nincs szabad hely';
-  };
 
   const flightDetails = {
     terminal: {
@@ -213,11 +180,11 @@ const FlightDetailsModal = ({ flight, onClose }: FlightDetailsModalProps) => {
                     <span className="class-name">Economy</span>
                   </div>
                   <div className="pricing-details">
-                    <div className="price-amount">{formatPrice(flight.prices.ECONOMY)}</div>
+                    <div className="price-amount">{formatPriceSimple(flight.prices.ECONOMY)}</div>
                     <div className="seats-info">
                       <IoMdPerson />
                       <span>{flight.availableSeats.ECONOMY} hely</span>
-                      <span className="seats-status">{getSeatStatus(flight.availableSeats.ECONOMY)}</span>
+                      <span className="seats-status">{getSeatStatusLabel(flight.availableSeats.ECONOMY)}</span>
                     </div>
                   </div>
                   <button 
@@ -237,11 +204,11 @@ const FlightDetailsModal = ({ flight, onClose }: FlightDetailsModalProps) => {
                     <span className="class-name">Business</span>
                   </div>
                   <div className="pricing-details">
-                    <div className="price-amount">{formatPrice(flight.prices.BUSINESS)}</div>
+                    <div className="price-amount">{formatPriceSimple(flight.prices.BUSINESS)}</div>
                     <div className="seats-info">
                       <IoMdPerson />
                       <span>{flight.availableSeats.BUSINESS} hely</span>
-                      <span className="seats-status">{getSeatStatus(flight.availableSeats.BUSINESS)}</span>
+                      <span className="seats-status">{getSeatStatusLabel(flight.availableSeats.BUSINESS)}</span>
                     </div>
                   </div>
                   <button 
@@ -260,11 +227,11 @@ const FlightDetailsModal = ({ flight, onClose }: FlightDetailsModalProps) => {
                     <span className="class-name">First Class</span>
                   </div>
                   <div className="pricing-details">
-                    <div className="price-amount">{formatPrice(flight.prices.FIRST)}</div>
+                    <div className="price-amount">{formatPriceSimple(flight.prices.FIRST)}</div>
                     <div className="seats-info">
                       <IoMdPerson />
                       <span>{flight.availableSeats.FIRST} hely</span>
-                      <span className="seats-status">{getSeatStatus(flight.availableSeats.FIRST)}</span>
+                      <span className="seats-status">{getSeatStatusLabel(flight.availableSeats.FIRST)}</span>
                     </div>
                   </div>
                   <button 

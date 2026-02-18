@@ -2,6 +2,8 @@ import './FlightCard.css';
 import { MdFlightTakeoff, MdFlightLand } from 'react-icons/md';
 import { FaClock, FaPlane } from 'react-icons/fa';
 import { IoMdPerson } from 'react-icons/io';
+import { getSeatStatus, formatPriceSimple, getDuration } from '../../utils/flightUtils';
+import { formatTime  } from '../../utils/dateUtils';
 
 interface Flight {
   id: string;
@@ -31,32 +33,6 @@ interface FlightCardProps {
 }
 
 const FlightCard = ({ flight, onDetailsClick, onBookingClick }: FlightCardProps) => {
-  const formatTime = (dateString: string) => {
-    return new Date(dateString).toLocaleTimeString('hu-HU', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-
-  const getDuration = (departure: string, arrival: string) => {
-    const dep = new Date(departure);
-    const arr = new Date(arrival);
-    const minutes = (arr.getTime() - dep.getTime()) / (1000 * 60);
-    const hours = Math.floor(minutes / 60);
-    const mins = Math.floor(minutes % 60);
-    return `${hours}ó ${mins}p`;
-  };
-
-  const getSeatStatus = (available: number): 'high' | 'medium' | 'low' => {
-    if (available > 30) return 'high';
-    if (available > 10) return 'medium';
-    return 'low';
-  };
-
-  const formatPrice = (price: number) => {
-    return price.toLocaleString('hu-HU') + ' Ft';
-  };
-
   const handleBooking = (seatClass: 'ECONOMY' | 'BUSINESS' | 'FIRST') => {
     onBookingClick(flight, seatClass);
   };
@@ -112,7 +88,7 @@ const FlightCard = ({ flight, onDetailsClick, onBookingClick }: FlightCardProps)
                 {flight.availableSeats.ECONOMY}
               </span>
             </div>
-            <div className="price-amount">{formatPrice(flight.prices.ECONOMY)}</div>
+            <div className="price-amount">{formatPriceSimple(flight.prices.ECONOMY)}</div>
             <button 
               className="book-btn"
               onClick={() => handleBooking('ECONOMY')}
@@ -131,7 +107,7 @@ const FlightCard = ({ flight, onDetailsClick, onBookingClick }: FlightCardProps)
                 {flight.availableSeats.BUSINESS}
               </span>
             </div>
-            <div className="price-amount">{formatPrice(flight.prices.BUSINESS)}</div>
+            <div className="price-amount">{formatPriceSimple(flight.prices.BUSINESS)}</div>
             <button 
               className="book-btn"
               onClick={() => handleBooking('BUSINESS')}
@@ -150,7 +126,7 @@ const FlightCard = ({ flight, onDetailsClick, onBookingClick }: FlightCardProps)
                 {flight.availableSeats.FIRST}
               </span>
             </div>
-            <div className="price-amount">{formatPrice(flight.prices.FIRST)}</div>
+            <div className="price-amount">{formatPriceSimple(flight.prices.FIRST)}</div>
             <button 
               className="book-btn"
               onClick={() => handleBooking('FIRST')}

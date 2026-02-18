@@ -2,6 +2,8 @@ import './BookingSummary.css';
 import { MdFlightTakeoff, MdFlightLand, MdEventSeat } from 'react-icons/md';
 import { FaPlane, FaCalendar } from 'react-icons/fa';
 import { calculatePrice, formatPrice } from '../../utils/priceCalculation';
+import { formatTime, formatDate } from '../../utils/dateUtils';
+import { getClassLabel } from '../../utils/flightUtils';
 
 interface Flight {
   id: string;
@@ -28,30 +30,6 @@ interface BookingSummaryProps {
 const BookingSummary = ({ flight, seatClass, departureDate }: BookingSummaryProps) => {
   const basePrice = flight.prices[seatClass];
   const priceBreakdown = calculatePrice(basePrice, seatClass, departureDate);
-
-  const formatTime = (dateString: string) => {
-    return new Date(dateString).toLocaleTimeString('hu-HU', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('hu-HU', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
-  const getClassLabel = (seatClass: string) => {
-    const labels = {
-      ECONOMY: 'Economy osztály',
-      BUSINESS: 'Business osztály',
-      FIRST: 'First Class'
-    };
-    return labels[seatClass as keyof typeof labels];
-  };
 
   return (
     <div className="booking-summary">

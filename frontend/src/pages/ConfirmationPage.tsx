@@ -5,6 +5,8 @@ import { MdFlightTakeoff, MdFlightLand, MdEventSeat } from 'react-icons/md';
 import './ConfirmationPage.css';
 import type { BookingData } from "../types/booking";
 import { formatPrice } from "../utils/priceCalculation";
+import { formatDate, formatTime } from "../utils/dateUtils";
+import { getClassLabel } from "../utils/flightUtils";
 
 interface Flight {
     id: string;
@@ -36,31 +38,6 @@ interface ConfirmationPageProps {
 const ConfirmationPage = ({ bookingData, flight, onBackToHome }: ConfirmationPageProps) => {
     const handlePrint = () => {
         window.print();
-    };
-
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('hu-HU', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric' 
-        });
-    };
-
-    const formatTime = (dateString: string) => {
-        return new Date(dateString).toLocaleTimeString('hu-HU', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    };
-
-    const getClassLabel = (seatClass: string) => {
-        const labels = {
-            ECONOMY: 'Economy osztály',
-            BUSINESS: 'Business osztály',
-            FIRST: 'First Class'
-        };
-
-        return labels[seatClass as keyof typeof labels];
     };
 
     const generateBookingReference = () => {

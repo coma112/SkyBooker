@@ -8,6 +8,7 @@ import './FlightListPage.css';
 import { FaSort } from 'react-icons/fa';
 import { GrDocumentMissing } from "react-icons/gr";
 import { FaArrowRight } from "react-icons/fa6";
+import { getTimeOfDay } from '../utils/flightUtils';
 
 // Mock data
 const mockFlights = [
@@ -136,13 +137,6 @@ const FlightListPage = ({ onBookingClick }: FlightListPageProps) => {
     minSeats: 0
   });
   const [sortBy, setSortBy] = useState<SortOption>('price');
-
-  const getTimeOfDay = (time: string) => {
-    const hour = new Date(time).getHours();
-    if (hour >= 5 && hour < 12) return 'morning';
-    if (hour >= 12 && hour < 18) return 'afternoon';
-    return 'evening';
-  };
 
   const getDuration = (departure: string, arrival: string) => {
     const dep = new Date(departure);

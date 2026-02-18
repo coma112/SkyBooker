@@ -10,6 +10,7 @@ import {
 import { MdFlightTakeoff, MdFlightLand, MdEventSeat } from 'react-icons/md';
 import { FaArrowRight } from 'react-icons/fa6';
 import { formatPrice } from '../utils/priceCalculation';
+import { formatDate, formatTime } from '../utils/dateUtils';
 
 type BookingStatus = 'PENDING' | 'CONFIRMED' | 'CANCELLED';
 
@@ -159,12 +160,6 @@ const MyBookingsPage = () => {
     }
     setLoading(false);
   };
-
-  const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString('hu-HU', { year: 'numeric', month: 'long', day: 'numeric' });
-
-  const formatTime = (d: string) =>
-    new Date(d).toLocaleTimeString('hu-HU', { hour: '2-digit', minute: '2-digit' });
 
   return (
     <div className="my-bookings-page">

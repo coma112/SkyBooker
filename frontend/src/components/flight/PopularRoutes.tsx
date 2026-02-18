@@ -64,7 +64,6 @@ const PopularRoutes = () => {
 
   const handleRouteClick = (route: Route) => {
     console.log('Selected route:', route);
-    // Itt majd be lesz állítva a search form
     alert(`${route.from} → ${route.to} útvonal kiválasztva!`);
   };
 
