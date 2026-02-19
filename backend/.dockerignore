@@ -1,0 +1,12 @@
+.gradle/
+build/
+out/
+.idea/
+*.iml
+*.iws
+.vscode/
+.git/
+.gitignore
+*.md
+.DS_Store
+Thumbs.db

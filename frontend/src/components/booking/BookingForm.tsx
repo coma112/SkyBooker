@@ -1,4 +1,5 @@
-import { useState, FormEvent, ChangeEvent, FocusEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent, ChangeEvent, FocusEvent } from 'react';
 import './BookingForm.css';
 import type { BookingFormData } from '../../types/booking';
 import {

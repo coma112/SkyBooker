@@ -1,0 +1,85 @@
+services:
+  db:
+    image: postgres:16-alpine # kisebb az image méret
+    container_name: flightbooking-db
+    restart: unless-stopped # ha crashel magától újraindul
+
+    environment:
+      POSTGRES_DB: flightbooking
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: coma112
+
+    ports:
+      - "5432:5432" # host:container 
+    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d flightbooking"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: flightbooking-backend
+    restart: unless-stopped
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flightbooking
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPINRG_DATASOURCE_PASSWORD: coma112
+
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "false"
+      SPRING_WEB_CORS_ALLOWED_ORIGINS: "http://localhost:5173,http://localhost:300,http://frontend:80"
+    
+    ports:
+      - "8081:8081"
+    
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8081/api/flights/1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  
+  mockdata:
+    build:
+      context: ./python-mock
+      dockerfile: Dockerfile
+    container_name: flightbooking-mockdata
+    restart: "no"
+
+    depends_on:
+      backend:
+        condition: service_healthy
+    
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: flightbooking
+      DB_USER: postgres
+      DB_PASSWORD: coma112 
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: flightbooking-frontend
+    restart: unless-stopped
+
+    depends_on:
+      - backend
+    
+    ports:
+      - "5173:80" # host 5173 -> container nginx 8
+
+volumes:
+  postgres_data:
+    driver: local

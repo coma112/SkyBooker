@@ -1,17 +1,18 @@
 import psycopg2
 import random
 import string
+import os
 from datetime import datetime, timedelta, date
 from faker import Faker
 
 fake = Faker('hu_HU')
 
 DB_CONFIG = {
-    'host': 'localhost',
-    'port': 5432,
-    'dbname': 'flightbooking',
-    'user': 'postgres',
-    'password': 'coma112'
+    'host': os.getenv('DB_HOST'),
+    'port': int(os.getenv('DB_PORT')),
+    'dbname': os.getenv('DB_NAME'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD')
 }
 
 AIRCRAFT_TYPES = [

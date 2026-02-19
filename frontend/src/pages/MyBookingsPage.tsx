@@ -21,12 +21,6 @@ const STATUS_LABELS: Record<BookingStatus, string> = {
   CANCELLED: 'Lemondva',
 };
 
-const CLASS_LABELS: Record<string, string> = {
-  ECONOMY: 'Economy osztály',
-  BUSINESS: 'Business osztály',
-  FIRST: 'First Class',
-};
-
 const MyBookingsPage = () => {
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
