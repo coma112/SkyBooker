@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&display=swap');
-
 .booking-summary {
   background: white;
   border-radius: 16px;
@@ -10,7 +8,7 @@
 }
 
 .summary-header {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+  background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -19,24 +17,16 @@
 .summary-header::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(255, 255, 255, 0.02) 10px,
-      rgba(255, 255, 255, 0.02) 20px
-    );
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 10px,
+    rgba(255, 255, 255, 0.02) 10px, rgba(255, 255, 255, 0.02) 20px
+  );
   pointer-events: none;
 }
 
 .summary-header h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: white;
   margin: 0;
@@ -44,22 +34,16 @@
   z-index: 1;
 }
 
-.summary-content {
-  padding: 1.5rem;
-}
+.summary-content { padding: 1.5rem; }
 
 .summary-section {
   padding: 1.25rem 0;
   border-bottom: 1px solid #e5e7eb;
 }
 
-.summary-section:last-child {
-  border-bottom: none;
-}
+.summary-section:last-child { border-bottom: none; }
 
-.flight-info {
-  padding-top: 0;
-}
+.flight-info { padding-top: 0; }
 
 .flight-header {
   display: flex;
@@ -68,25 +52,21 @@
   margin-bottom: 0.5rem;
 }
 
-.section-icon {
-  font-size: 1.5rem;
-  color: #2c5282;
-}
+.section-icon { font-size: 1.5rem; color: #0078D4; }
 
 .flight-number {
-  font-family: 'Space Mono', monospace;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a1a1a;
 }
 
 .airline-name {
-  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #666;
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: 600;
 }
 
 .route-info {
@@ -103,198 +83,95 @@
   gap: 0.5rem;
 }
 
-.route-icon {
-  font-size: 1.5rem;
-  color: #2c5282;
-}
+.route-icon { font-size: 1.5rem; color: #0078D4; }
 
-.route-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
+.route-details { display: flex; flex-direction: column; gap: 0.125rem; }
 
-.airport-code {
-  font-family: 'Space Mono', monospace;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1e3a5f;
-}
+.airport-code { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; }
+.airport-city { font-size: 0.75rem; color: #666; }
+.flight-time { font-size: 0.875rem; font-weight: 700; color: #FF9500; }
 
-.airport-city {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: #6b7280;
-}
-
-.flight-time {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: #fbbf24;
-}
-
-.route-arrow {
-  font-size: 1.5rem;
-  color: #2c5282;
-  font-weight: 700;
-}
+.route-arrow { font-size: 1.5rem; color: #0078D4; font-weight: 700; }
 
 .departure-date {
-  font-family: 'Space Mono', monospace;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: #f8fafc;
+  background: #f8f9fa;
   border-radius: 8px;
   font-size: 0.875rem;
-  color: #1e3a5f;
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
-.date-icon {
-  color: #fbbf24;
-}
+.date-icon { color: #FF9500; }
 
-.class-section {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+.class-section { display: flex; align-items: center; gap: 0.75rem; }
 
 .class-label {
-  font-family: 'Space Mono', monospace;
   font-size: 1rem;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a1a1a;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .price-section h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a1a1a;
   margin: 0 0 1rem 0;
 }
 
-.price-breakdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+.price-breakdown { display: flex; flex-direction: column; gap: 0.75rem; }
 
 .price-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
 }
 
-.price-label {
-  color: #4b5563;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+.price-label { color: #666; display: flex; align-items: center; gap: 0.5rem; }
+.price-info { font-size: 0.75rem; color: #9ca3af; }
+.price-value { font-weight: 700; color: #1a1a1a; }
 
-.price-info {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  font-weight: 400;
-}
+.price-item.discount .price-label { color: #059669; }
+.discount-value { color: #059669 !important; }
+.price-item.fee .price-label { color: #dc2626; }
+.fee-value { color: #dc2626 !important; }
 
-.price-value {
-  font-weight: 700;
-  color: #1e3a5f;
-}
-
-.price-item.discount .price-label {
-  color: #059669;
-}
-
-.discount-value {
-  color: #059669 !important;
-}
-
-.price-item.fee .price-label {
-  color: #dc2626;
-}
-
-.fee-value {
-  color: #dc2626 !important;
-}
-
-.price-divider {
-  height: 1px;
-  background: #e5e7eb;
-  margin: 0.5rem 0;
-}
+.price-divider { height: 1px; background: #e5e7eb; margin: 0.5rem 0; }
 
 .price-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #e8f4fd 0%, #bfdbfe 100%);
   border-radius: 8px;
   margin-top: 0.5rem;
 }
 
-.total-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #1e3a5f;
-}
-
-.total-value {
-  font-family: 'Space Mono', monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fbbf24;
-}
+.total-label { font-size: 1.125rem; font-weight: 700; color: #1a1a1a; }
+.total-value { font-size: 1.5rem; font-weight: 700; color: #0078D4; }
 
 .summary-notice {
   margin-top: 1rem;
   padding: 1rem;
-  background: #f3f4f6;
+  background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #2c5282;
+  border-left: 4px solid #0078D4;
 }
 
-.summary-notice p {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: #4b5563;
-  margin: 0;
-  line-height: 1.5;
-}
+.summary-notice p { font-size: 0.75rem; color: #666; margin: 0; line-height: 1.5; }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .booking-summary {
-    position: static;
-  }
-}
+@media (max-width: 1024px) { .booking-summary { position: static; } }
 
 @media (max-width: 480px) {
-  .route-info {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .route-arrow {
-    transform: rotate(90deg);
-  }
-
-  .route-point {
-    width: 100%;
-  }
-
-  .total-value {
-    font-size: 1.25rem;
-  }
+  .route-info { flex-direction: column; gap: 1rem; }
+  .route-arrow { transform: rotate(90deg); }
+  .route-point { width: 100%; }
+  .total-value { font-size: 1.25rem; }
 }

@@ -1,28 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&display=swap');
-
 .booking-form {
   background: white;
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.form-section {
-  margin-bottom: 2.5rem;
-}
-
-.form-section:last-of-type {
-  margin-bottom: 2rem;
-}
+.form-section { margin-bottom: 2.5rem; }
+.form-section:last-of-type { margin-bottom: 2rem; }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a1a1a;
   margin: 0 0 1.5rem 0;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #fbbf24;
+  border-bottom: 2px solid #0078D4;
 }
 
 .form-row {
@@ -38,10 +30,9 @@
 }
 
 .form-label {
-  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #1e3a5f;
+  color: #1a1a1a;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -49,88 +40,56 @@
   letter-spacing: 0.3px;
 }
 
-.label-icon {
-  color: #2c5282;
-  font-size: 1rem;
-}
-
-.required {
-  color: #dc2626;
-  font-size: 1rem;
-}
+.label-icon { color: #0078D4; font-size: 1rem; }
+.required { color: #dc2626; font-size: 1rem; }
 
 .form-input {
-  font-family: 'Space Mono', monospace;
   padding: 0.875rem 1rem;
   border: 2px solid #e5e7eb;
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #1e3a5f;
+  color: #1a1a1a;
   transition: all 0.2s ease;
   background: white;
+  font-family: inherit;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #2c5282;
-  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+  border-color: #0078D4;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
 }
 
-.form-input::placeholder {
-  color: #9ca3af;
-  font-weight: 400;
-}
+.form-input::placeholder { color: #9ca3af; }
 
-.form-input.error {
-  border-color: #dc2626;
-  background: #fef2f2;
-}
+.form-input.error { border-color: #dc2626; background: #fef2f2; }
+.form-input.error:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
 
-.form-input.error:focus {
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-}
-
-.form-input:disabled {
-  background: #f3f4f6;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
+.form-input:disabled { background: #f3f4f6; cursor: not-allowed; opacity: 0.6; }
 
 .error-message {
-  font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
   color: #dc2626;
-  font-weight: 700;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.25rem;
   margin-top: -0.25rem;
 }
 
-.error-message::before {
-  content: '⚠';
-  font-size: 0.875rem;
-}
+.error-message::before { content: '⚠'; font-size: 0.875rem; }
 
-.field-hint {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: #6b7280;
-  margin-top: -0.25rem;
-}
+.field-hint { font-size: 0.75rem; color: #6b7280; margin-top: -0.25rem; }
 
-.form-actions {
-  margin: 2rem 0 1.5rem;
-}
+.form-actions { margin: 2rem 0 1.5rem; }
 
 .submit-button {
   width: 100%;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+  background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);
   color: white;
   border: none;
   border-radius: 8px;
-  font-family: 'Space Mono', monospace;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -141,94 +100,50 @@
   gap: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+  font-family: inherit;
 }
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
 }
 
-.submit-button:active:not(:disabled) {
-  transform: translateY(0);
-}
+.submit-button:active:not(:disabled) { transform: translateY(0); }
+.submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-.submit-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-}
+.spinner { animation: spin 1s linear infinite; }
 
-.spinner {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 .form-notice {
   padding: 1rem 1.25rem;
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #e8f4fd 0%, #bfdbfe 100%);
   border-radius: 8px;
-  border-left: 4px solid #fbbf24;
+  border-left: 4px solid #0078D4;
 }
 
 .form-notice p {
-  font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
-  color: #92400e;
+  color: #005A9E;
   margin: 0;
   line-height: 1.6;
 }
 
-.form-notice strong {
-  font-weight: 700;
-  color: #78350f;
-}
+.form-notice strong { font-weight: 700; color: #003d6b; }
 
 @media (max-width: 768px) {
-  .booking-form {
-    padding: 1.5rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.25rem;
-  }
+  .booking-form { padding: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; gap: 1rem; }
+  .section-title { font-size: 1.1rem; }
 }
 
 @media (max-width: 480px) {
-  .booking-form {
-    padding: 1rem;
-  }
-
-  .form-section {
-    margin-bottom: 2rem;
-  }
-
-  .form-label {
-    font-size: 0.75rem;
-  }
-
-  .form-input {
-    padding: 0.75rem;
-    font-size: 0.875rem;
-  }
-
-  .submit-button {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.875rem;
-  }
+  .booking-form { padding: 1rem; }
+  .form-section { margin-bottom: 2rem; }
+  .form-label { font-size: 0.75rem; }
+  .form-input { padding: 0.75rem; font-size: 0.875rem; }
+  .submit-button { padding: 0.875rem 1.5rem; font-size: 0.875rem; }
 }
 
 input[type="date"].form-input {
@@ -238,20 +153,15 @@ input[type="date"].form-input {
 
 input[type="date"].form-input::-webkit-calendar-picker-indicator {
   cursor: pointer;
-  color: #2c5282;
+  color: #0078D4;
   font-size: 1.25rem;
-}
-
-.form-input:focus-visible {
-  outline: 2px solid #2c5282;
-  outline-offset: 2px;
 }
 
 .form-input:-webkit-autofill,
 .form-input:-webkit-autofill:hover,
 .form-input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px white inset;
-  -webkit-text-fill-color: #1e3a5f;
+  -webkit-text-fill-color: #1a1a1a;
   transition: background-color 5000s ease-in-out 0s;
-  border: 2px solid #2c5282;
+  border: 2px solid #0078D4;
 }
