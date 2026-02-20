@@ -1,0 +1,193 @@
+.not-found-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f4f6f9;
+}
+
+/* A középső tartalom kitölti a maradék helyet a navbar és footer között */
+.not-found-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+.not-found-container {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.not-found-code {
+    font-size: 10rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+
+    background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);
+    --webkit-background-clip: text;
+    --webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+.not-found-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    /* ilyen 45 fokos döntést akarok tehát mintha elveszítette volna a repcsi
+    az irányt :D */
+    animation: fly 4s ease-in-out infinite;
+}
+
+@keyframes fly {
+    0%, 100% { transform: rotate(-10deg) translateY(0); }
+    50% { transform: rotate(10deg) translateY(-10px); }
+}
+
+.not-found-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 1rem 0;
+}
+
+.not-found-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0 0 2.5rem 0;
+    line-height: 1.6;
+}
+
+.not-found-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.not-found-btn-primary {
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, #0078D4 0%, #005A9E 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
+    font-family: inherit;
+}
+
+.not-found-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
+}
+
+.not-found-btn-secondary {
+  padding: 0.875rem 2rem;
+  background: white;
+  color: #0078D4;
+  border: 2px solid #0078D4;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+.not-found-btn-secondary:hover {
+  background: #f0f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 120, 212, 0.2);
+}
+
+.not-found-links {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.not-found-links h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 1.5rem 0;
+}
+
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.quick-link-btn {
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+}
+
+.quick-link-btn:hover {
+    border-color: #0078D4;
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+}
+
+.quick-link-icon {
+    font-size: 1.75rem;
+    color: #0078D4;
+}
+
+.quick-link-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+@media (max-width: 480px) {
+    .not-found-code { font-size: 7rem; }
+    .not-found-title { font-size: 1.75rem }
+    .not-found-actions { flex-direction: column; align-items: stretch; }
+    .not-found-btn-primary,
+    .not-found-btn-secondary { justify-content: center; }
+}
+

@@ -50,6 +50,7 @@ docker compose up --build
 Levideóztam a fejlesztésemet és utamat, hogy később tanulni tudjak belőle.
 0 effort van a videókban, úgy éreztem hogy felveszem és felvettem.
 
+- [8. Videó](https://youtu.be/bIKdVYV2WcE) - 404 Oldal és React Router DOM
 - [7. Videó](https://youtu.be/0tuvfuaQCFY) - Docker & Kevés debug
 - [6. Videó](https://youtu.be/gnltEyXmwdk) - SeatSelector Addon
 - [5. Videó](https://youtu.be/_Ev8G_iSq6I) - API & CORS
