@@ -40,6 +40,7 @@ export const validateBirthDate = (date: string): string | null => {
   }
   
   const age = today.getFullYear() - birthDate.getFullYear();
+
   if (age < 18) {
     return 'Az utasnak legalább 18 évesnek kell lennie!';
   }
@@ -52,8 +53,10 @@ export const validateName = (name: string, fieldName: string): string | null => 
   if (name.length < 2) {
     return `${fieldName} legalább 2 karakter hosszú legyen!`;
   }
+
   if (!/^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ\s-]+$/.test(name)) {
     return 'Csak betűk, szóköz és kötőjel engedélyezett!';
   }
+  
   return null;
 };

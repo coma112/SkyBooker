@@ -20,18 +20,21 @@ export const calculatePrice = (
   const priceWithClass = basePrice * classMultiplier;
   
   let earlyBirdDiscount = 0;
+  
   if (daysUntilDeparture >= 30) {
     earlyBirdDiscount = priceWithClass * 0.15;
   }
   
   let lastMinuteFee = 0;
+
   if (daysUntilDeparture <= 7) {
     lastMinuteFee = priceWithClass * 0.25;
   }
   
   let seasonalFee = 0;
   const month = departure.getMonth() + 1;
-  if (month >= 6 && month <= 8) {
+
+  if (month >= 6 && month <= 8) { 
     seasonalFee = priceWithClass * 0.20;
   }
   

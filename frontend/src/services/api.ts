@@ -114,7 +114,6 @@ export const flightApi = {
 };
 
 export const bookingApi = {
-
   createBooking: (request: BookingRequest): Promise<BookingResponse> =>
     apiFetch<BookingResponse>('/bookings', {
       method: 'POST',
