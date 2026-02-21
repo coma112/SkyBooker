@@ -46,6 +46,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
 .nav-link {
@@ -65,6 +66,480 @@
 .nav-link.active {
   background: rgba(255, 255, 255, 0.2);
   color: white;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-track {
+  display: flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  padding: 3px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle:hover .theme-toggle-track {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.theme-toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="light"] .theme-toggle-thumb {
+  transform: translateX(0);
+}
+
+[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+.theme-icon {
+  font-size: 12px;
+  color: #0078D4;
+}
+
+[data-theme="dark"] .theme-icon {
+  color: #1a1a1a;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0f1117;
+  --bg-secondary: #1a1d27;
+  --bg-card: #1e2232;
+  --bg-hover: #252a3a;
+  --text-primary: #e8eaf0;
+  --text-secondary: #9aa0b8;
+  --text-muted: #5c6280;
+  --border-color: #2e3350;
+  --border-hover: #4a5080;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --input-bg: #252a3a;
+  --input-border: #2e3350;
+  --input-focus: #0078D4;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f4f6f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-hover: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-muted: #9ca3af;
+  --border-color: #e5e7eb;
+  --border-hover: #0078D4;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --input-bg: #ffffff;
+  --input-border: #e5e7eb;
+  --input-focus: #0078D4;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .flight-card,
+[data-theme="dark"] .booking-form,
+[data-theme="dark"] .booking-summary,
+[data-theme="dark"] .search-card,
+[data-theme="dark"] .booking-result-card,
+[data-theme="dark"] .contact-info-card,
+[data-theme="dark"] .contact-form-card,
+[data-theme="dark"] .no-results,
+[data-theme="dark"] .sort-controls,
+[data-theme="dark"] .price-option,
+[data-theme="dark"] .summary-content,
+[data-theme="dark"] .result-card-body,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .modal-box,
+[data-theme="dark"] .not-found-links,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .route-card,
+[data-theme="dark"] .booking-details-card,
+[data-theme="dark"] .quick-contact-card,
+[data-theme="dark"] .confirmation-notice,
+[data-theme="dark"] .seat-selector-panel,
+[data-theme="dark"] .flight-filters,
+[data-theme="dark"] .ss-legend,
+[data-theme="dark"] .ss-class-filter,
+[data-theme="dark"] .ss-footer,
+[data-theme="dark"] .ss-cabin-scroll,
+[data-theme="dark"] .action-buttons-row {
+  background: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .home-page,
+[data-theme="dark"] .flight-list-page,
+[data-theme="dark"] .booking-page,
+[data-theme="dark"] .confirmation-page,
+[data-theme="dark"] .my-bookings-page,
+[data-theme="dark"] .contact-page,
+[data-theme="dark"] .not-found-page {
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .flight-list-main,
+[data-theme="dark"] .booking-main,
+[data-theme="dark"] .confirmation-main,
+[data-theme="dark"] .my-bookings-main,
+[data-theme="dark"] .contact-main,
+[data-theme="dark"] .not-found-main {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .airport-code,
+[data-theme="dark"] .airport-name,
+[data-theme="dark"] .flight-number,
+[data-theme="dark"] .class-name,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .form-label,
+[data-theme="dark"] .filter-label,
+[data-theme="dark"] .result-value,
+[data-theme="dark"] .detail-value,
+[data-theme="dark"] .total-label,
+[data-theme="dark"] .point-time,
+[data-theme="dark"] .location-code,
+[data-theme="dark"] .route-code,
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .airport-name,
+[data-theme="dark"] .airline-name,
+[data-theme="dark"] .aircraft-type,
+[data-theme="dark"] .result-label,
+[data-theme="dark"] .detail-label,
+[data-theme="dark"] .point-date,
+[data-theme="dark"] .location-name,
+[data-theme="dark"] .route-city,
+[data-theme="dark"] .slot-label,
+[data-theme="dark"] .airline-name-filter,
+[data-theme="dark"] .price-label,
+[data-theme="dark"] .total-price-label,
+[data-theme="dark"] .hours-row,
+[data-theme="dark"] p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .booking-code-input,
+[data-theme="dark"] .cf-input,
+[data-theme="dark"] .cf-select,
+[data-theme="dark"] .cf-textarea,
+[data-theme="dark"] .price-input-group input {
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .booking-code-input:focus,
+[data-theme="dark"] .cf-input:focus {
+  border-color: var(--input-focus) !important;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2) !important;
+}
+
+[data-theme="dark"] select.form-input,
+[data-theme="dark"] select.cf-input {
+  background: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .price-divider,
+[data-theme="dark"] .summary-section,
+[data-theme="dark"] .result-row,
+[data-theme="dark"] .detail-row,
+[data-theme="dark"] .hours-row,
+[data-theme="dark"] .filter-section {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .features-section {
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .feature-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .feature-card:hover {
+  background: var(--bg-hover) !important;
+  border-color: #0078D4 !important;
+}
+
+[data-theme="dark"] .popular-routes {
+  background: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .route-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .route-card:hover {
+  border-color: #0078D4 !important;
+}
+
+[data-theme="dark"] .route-cities,
+[data-theme="dark"] .route-codes {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .flight-card-header {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .flight-prices {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .price-option {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .price-option:hover {
+  border-color: #0078D4 !important;
+}
+
+[data-theme="dark"] .duration-badge {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .aircraft-type {
+  background: var(--bg-hover) !important;
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .footer {
+  background: #08090e !important;
+}
+
+[data-theme="dark"] .departure-date {
+  background: var(--bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .price-total {
+  background: linear-gradient(135deg, #1a2540 0%, #1e2a4a 100%) !important;
+}
+
+[data-theme="dark"] .total-value {
+  color: #4fb3ff !important;
+}
+
+[data-theme="dark"] .summary-notice {
+  background: var(--bg-hover) !important;
+}
+
+[data-theme="dark"] .summary-notice p {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .confirmation-notice {
+  background: linear-gradient(135deg, #1a2540 0%, #1e2a4a 100%) !important;
+}
+
+[data-theme="dark"] .notice-title,
+[data-theme="dark"] .notice-text {
+  color: #a8c8ff !important;
+}
+
+[data-theme="dark"] .total-price-display {
+  background: linear-gradient(135deg, #1a2540 0%, #1e2a4a 100%) !important;
+}
+
+[data-theme="dark"] .total-price-value {
+  color: #4fb3ff !important;
+}
+
+[data-theme="dark"] .flight-route-display {
+  background: var(--bg-hover) !important;
+}
+
+[data-theme="dark"] .route-airport-code {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .time-slot {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .time-slot:hover {
+  border-color: #0078D4 !important;
+  background: #1a2540 !important;
+}
+
+[data-theme="dark"] .seats-btn {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .seats-btn:hover {
+  border-color: #0078D4 !important;
+  background: #1a2540 !important;
+}
+
+[data-theme="dark"] .sort-btn {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .sort-btn:hover {
+  border-color: #0078D4 !important;
+  color: #4fb3ff !important;
+  background: #1a2540 !important;
+}
+
+[data-theme="dark"] .airline-checkbox:hover {
+  background: var(--bg-hover) !important;
+}
+
+[data-theme="dark"] .airline-name {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .ss-cabin-scroll {
+  background: #12151f !important;
+}
+
+[data-theme="dark"] .duration-badge,
+[data-theme="dark"] .ss-selected-label {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .ss-selected-value {
+  color: #4fb3ff !important;
+}
+
+[data-theme="dark"] .seat-btn.occupied {
+  background: #1e2232 !important;
+  border-color: #2e3350 !important;
+}
+
+[data-theme="dark"] .not-found-links {
+  background: var(--bg-card) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+
+[data-theme="dark"] .quick-link-btn {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .quick-link-btn:hover {
+  border-color: #0078D4 !important;
+  background: #1a2540 !important;
+}
+
+[data-theme="dark"] .quick-link-label {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .form-notice {
+  background: linear-gradient(135deg, #1a2540 0%, #1e2a4a 100%) !important;
+}
+
+[data-theme="dark"] .form-notice p {
+  color: #a8c8ff !important;
+}
+
+[data-theme="dark"] .quick-contact-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .quick-contact-card:hover {
+  border-color: #0078D4 !important;
+}
+
+[data-theme="dark"] .quick-contact-card h3 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .baggage-item,
+[data-theme="dark"] .service-item,
+[data-theme="dark"] .pricing-card {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .baggage-label,
+[data-theme="dark"] .service-text,
+[data-theme="dark"] .seats-info {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .baggage-value {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .point-extra {
+  background: var(--bg-hover) !important;
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .timeline-duration,
+[data-theme="dark"] .timeline-aircraft {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .timeline-duration {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .error-banner {
+  background: #2d1515 !important;
+  border-color: #7f1d1d !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
 }
 
 @media (max-width: 768px) {
