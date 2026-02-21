@@ -96,7 +96,6 @@ const PopularRoutes = () => {
                 </div>
               </div>
               <div className="route-price">
-                <span className="price-label">-tól</span>
                 <span className="price-value">{route.price}</span>
               </div>
             </div>

@@ -7,6 +7,7 @@ import BookingPage from './pages/BookingPage';
 import MyBookingsPage from './pages/MyBookingsPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ConfirmationPage from './pages/ConfirmationPage';
+import ContactPage from './pages/ContactPage';
 
 import './App.css';
 
@@ -133,7 +134,7 @@ function AppContent() {
 
       <Route path="/my-bookings" element={<MyBookingsPage />} />
 
-      {/* <Route path="/contact" element={<ContactPage />} /> */}
+      <Route path="/contact" element={<ContactPage />} />
 
       <Route path="*" element={<NotFoundPage onBackToHome={handleBackToHome} />} />
     </Routes>

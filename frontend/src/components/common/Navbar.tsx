@@ -20,7 +20,7 @@ const Navbar = () => {
                 <ul className="navbar-links">
                     <li><a onClick={() => navigate('home')} className="nav-link active" style={{ cursor: 'pointer' }}>Járatok keresése</a></li>
                     <li><a onClick={() => navigate('my-bookings')} className="nav-link active" style={{ cursor: 'pointer' }}>Foglalásaim</a></li>
-                    <li><a href="#contact" className="nav-link">Kapcsolat</a></li>
+                    <li><a onClick={() => navigate('contact')} className="nav-link active" style={{ cursor: 'pointer' }}>Kapcsolat</a></li>
                 </ul>
             </div>
         </nav>

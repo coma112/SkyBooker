@@ -96,13 +96,6 @@
   gap: 0.25rem;
 }
 
-.price-label {
-  font-size: 0.85rem;
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 .price-value {
   font-size: 1.5rem;
   font-weight: 700;
